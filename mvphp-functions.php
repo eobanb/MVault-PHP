@@ -4,7 +4,7 @@ include('./httpful.phar'); // HTTPful library
 
 function MVwriteRecord($uri) {
 	global $username, $password, $json_record;
-	$response = \Httpful\Request::put($uri) // PUT for creating
+	$response = \Httpful\Request::put($uri) // PUT for creating/editing
 	->sendsJson() // JSON
     ->authenticateWith($username, $password)
     ->body($json_record) 
@@ -18,7 +18,6 @@ function MVgetRecord($uri) {
     	->authenticateWith($username, $password)
     	->send();
 	return $response;
-	return $status = 'record retrieved';
 }
 
 ?>
